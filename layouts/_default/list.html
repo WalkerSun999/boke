@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Site.Title }}</title>
+  <style>
+    body { max-width: 720px; margin: 2rem auto; padding: 0 1rem; font-family: -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.7; color: #333; }
+    h1 { font-size: 1.8rem; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; }
+    .post { margin: 1.5rem 0; padding-bottom: 1rem; border-bottom: 1px solid #f0f0f0; }
+    .post h2 { margin: 0 0 0.3rem; font-size: 1.2rem; }
+    .post h2 a { color: #333; text-decoration: none; }
+    .post h2 a:hover { color: #0366d6; }
+    .post .meta { color: #888; font-size: 0.85rem; }
+    .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.3rem; }
+    .tag { background: #f0f0f0; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <h1>{{ .Site.Title }}</h1>
+  <p>{{ .Site.Params.description }}</p>
+  {{ range .Pages }}
+  <div class="post">
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <div class="meta">{{ .Date.Format "2006-01-02" }} · {{ .Params.author }}</div>
+    {{ if .Params.tags }}
+    <div class="tags">{{ range .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}</div>
+    {{ end }}
+  </div>
+  {{ end }}
+</body>
+</html>
