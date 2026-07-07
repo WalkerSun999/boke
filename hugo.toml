@@ -1,0 +1,7 @@
+baseURL = "https://walkersun999.github.io/boke/"
+languageCode = "zh-cn"
+title = "博客"
+
+[params]
+  author = "WalkerSun999"
+  description = "个人博客"
